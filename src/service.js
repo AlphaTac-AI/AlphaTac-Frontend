@@ -18,7 +18,7 @@ export function getMatches() {
   // publicMatches
   return getJson('https://api.opendota.com/api/proMatches').then(data => {
     data.forEach(item => {
-      item.start_time_str = moment(item.start_time).format('YYYY-MM-DD hh:mm:ss');
+      item.start_time_str = moment(item.start_time * 1000).format('YYYY-MM-DD hh:mm:ss');
       // item.dire_team_heros = item.dire_team.split(',').map(heroId => getHeroAvatar(heroId));
       // item.radiant_team_heros = item.radiant_team.split(',').map(heroId => getHeroAvatar(heroId));
     });
