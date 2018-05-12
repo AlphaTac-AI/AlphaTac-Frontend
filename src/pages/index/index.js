@@ -43,7 +43,6 @@ export default class App extends Component {
     this.setState({ loading: true });
     queryWinner(data).then(res => {
       this.setState({ result: res, loading: false });
-      throw new Error('ddf')
     }).catch(err => {
       this.setState({
         message: (err && err.message) || '系统繁忙，请稍后重试',
