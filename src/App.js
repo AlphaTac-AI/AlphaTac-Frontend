@@ -9,7 +9,7 @@ const App = () => (
   <Router>
     <div className="App">
       <header className="App-header">
-        <div className="App-logo"><div className="logo">AT</div></div>
+        <div className="App-logo"><div className="App-logo-icon">AT</div></div>
         <h1 className="App-title">Welcome Alpha Tac</h1>
       </header>
       <Route exact path="/" component={Index} />

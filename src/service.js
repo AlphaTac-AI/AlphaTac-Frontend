@@ -70,5 +70,5 @@ export function queryWinner(data) {
   //   "win_probability": "0.8773",
   //   "winner": "Dire"
   // });
-  return getJson('http://123.207.61.41:9527/api/v1/query_winner', { data: data, mode: 'cros' });
+  return getJson('http://123.207.61.41:9527/api/v1/query_winner', { data, mode: 'cors' });
 }

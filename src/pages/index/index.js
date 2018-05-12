@@ -3,6 +3,7 @@ import AutoComplet from '../../components/AutoComplet';
 import { queryWinner } from '../../service';
 import { queryHeros, queryTeams } from './service'
 import { FormControl } from 'material-ui/Form';
+import Snackbar from 'material-ui/Snackbar';
 import Button from 'material-ui/Button';
 import { TEXT } from '../../constants';
 
@@ -11,20 +12,21 @@ import './index.css';
 export default class App extends Component {
   state = {
     form: {
-      radiant_team_id: '',
-      radiant_hero_1: '',
-      radiant_hero_2: '',
-      radiant_hero_3: '',
-      radiant_hero_4: '',
-      radiant_hero_5: '',
-      dire_team_id: '',
-      dire_hero_1: '',
-      dire_hero_2: '',
-      dire_hero_3: '',
-      dire_hero_4: '',
-      dire_hero_5: '',
+      radiant_team_id: '123',
+      radiant_hero_1: '1',
+      radiant_hero_2: '21',
+      radiant_hero_3: '3',
+      radiant_hero_4: '1',
+      radiant_hero_5: '3',
+      dire_team_id: '1',
+      dire_hero_1: '2',
+      dire_hero_2: '3',
+      dire_hero_3: '2',
+      dire_hero_4: '3',
+      dire_hero_5: '3',
     },
     result: null,
+    message: false,
   }
 
   validate() {
@@ -38,11 +40,15 @@ export default class App extends Component {
 
   handlePredict = () => {
     const data = { ...this.state.form, start_time: Date.now() };
+    this.setState({ loading: true });
     queryWinner(data).then(res => {
-      console.log('xxx', data, res);
-      this.setState({ result: res });
+      this.setState({ result: res, loading: false });
+      throw new Error('ddf')
     }).catch(err => {
-      alert((err && err.message) || '系统繁忙，请稍后重试');
+      this.setState({
+        message: (err && err.message) || '系统繁忙，请稍后重试',
+        loading: false,
+      });
     });
   }
 
@@ -53,6 +59,10 @@ export default class App extends Component {
         [type]: item.value,
       },
     });
+  }
+
+  handleClearMessage = () => {
+    this.setState({ message: false });
   }
 
   renderHeros(type) {
@@ -88,6 +98,7 @@ export default class App extends Component {
   }
 
   render() {
+    const { message, loading } = this.state;
     return (
       <div className="index">
         <FormControl>
@@ -100,10 +111,14 @@ export default class App extends Component {
         {this.renderHeros('dire')}
         {this.renderResult()}
         <div className="btn-contianer">
-          <Button disabled={!this.validate()} variant="raised" color="primary" onClick={this.handlePredict}>
-            预测
+          <Button  variant="raised" color="primary" onClick={this.handlePredict}>
+            {loading ? '加载中...' : '预测'}
           </Button>
         </div>
+        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+          open={!!message} message={message}
+          onClose={this.handleClearMessage}
+        />
       </div>
     );
   }
