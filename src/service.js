@@ -1,16 +1,46 @@
 import moment from 'moment';
 import heros from './heros';
 
-export function getJson(url) {
-  return fetch(url).then((res) => res.json());
+export function getQueryString(data) {
+  let str = '?';
+  Object.keys(data).forEach((key, i) => {
+    if (i !== 0) {
+      str += '&';
+    }
+    str += `${key}=${data[key]}`;
+  });
+  return str;
+}
+
+export function getJson(url, options = {}) {
+  const { method = 'GET', data, ...others } = options;
+  if (!others.headers) {
+    others.headers = new Headers({
+      'Content-Type': 'application/json',
+    });
+  }
+  if (method === 'GET') {
+    url = `${url}${getQueryString(data)}`
+  } else if (method === 'POST') {
+    others.body = JSON.stringify(data);
+  }
+  console.log(url, options);
+  return fetch(url, { method, ...others }).then((resp) => {
+    const res = resp.json();
+    if (res.result && res.result !== 'success') {
+      return Promise.reject(res);
+    }
+    return res;
+  }).catch(e => {
+    console.log(e);
+    throw e;
+  });
 }
 
 export function getLives() {
   return getJson('https://api.opendota.com/api/live').then(data => {
     data.forEach(item => item.activate_time_str = moment(item.activate_time).format('yyyy-MM-DD hh:mm:ss'));
     return data;
-  }).catch(function (e) {
-    console.log("Oops, error", e);
   });
 }
 
@@ -23,8 +53,6 @@ export function getMatches() {
       // item.radiant_team_heros = item.radiant_team.split(',').map(heroId => getHeroAvatar(heroId));
     });
     return data;
-  }).catch(function (e) {
-    console.log("Oops, error", e);
   });
 }
 
@@ -34,4 +62,8 @@ export function getHeroAvatar(id) {
   const { localized_name: name } = hero;
   const arr = name.indexOf('-') > -1 ? name.split('-') : name.split(' ');
   return `https://api.opendota.com/apps/dota2/images/heroes/${arr.map(n => n.toLowerCase()).join('')}_full.png?`;
+}
+
+export function queryWinner(data) {
+  return getJson('http://123.207.61.41:9527/api/v1/query_winner', { data: data });
 }
