@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
 
 import Index from './pages/index';
@@ -10,7 +9,7 @@ const App = () => (
   <Router>
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="App-logo"><div className="logo">AT</div></div>
         <h1 className="App-title">Welcome Alpha Tac</h1>
       </header>
       <Route exact path="/" component={Index} />
