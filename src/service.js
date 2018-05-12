@@ -17,6 +17,7 @@ export function getJson(url, options = {}) {
   if (!others.headers) {
     others.headers = new Headers({
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     });
   }
   if (method === 'GET') {
@@ -24,7 +25,6 @@ export function getJson(url, options = {}) {
   } else if (method === 'POST') {
     others.body = JSON.stringify(data);
   }
-  console.log(url, options);
   return fetch(url, { method, ...others }).then((resp) => {
     const res = resp.json();
     if (res.result && res.result !== 'success') {
@@ -32,7 +32,6 @@ export function getJson(url, options = {}) {
     }
     return res;
   }).catch(e => {
-    console.log(e);
     throw e;
   });
 }
@@ -65,5 +64,11 @@ export function getHeroAvatar(id) {
 }
 
 export function queryWinner(data) {
-  return getJson('http://123.207.61.41:9527/api/v1/query_winner', { data: data });
+  // return Promise.resolve({
+  //   "msg": "",
+  //   "result": "success",
+  //   "win_probability": "0.8773",
+  //   "winner": "Dire"
+  // });
+  return getJson('http://123.207.61.41:9527/api/v1/query_winner', { data: data, mode: 'cros' });
 }

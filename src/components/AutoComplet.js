@@ -23,7 +23,7 @@ function renderInput(inputProps) {
 
 function renderSuggestion({ suggestion, index, itemProps, highlightedIndex, selectedItem }) {
   const isHighlighted = highlightedIndex === index;
-  const isSelected = (selectedItem && selectedItem.label || '').indexOf(suggestion.label) > -1;
+  const isSelected = ((selectedItem && selectedItem.label) || '').indexOf(suggestion.label) > -1;
   return (
     <MenuItem
       {...itemProps}

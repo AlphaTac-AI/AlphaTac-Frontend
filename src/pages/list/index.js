@@ -12,7 +12,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="index">
         <LiveTable data={this.state.lives} />
