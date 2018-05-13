@@ -11,6 +11,7 @@ const App = () => (
       <header className="App-header">
         <div className="App-logo"><div className="App-logo-icon">AT</div></div>
         <h1 className="App-title">Welcome to Alpha Tac</h1>
+        Dota2 Win Prediction AI
       </header>
       <Route exact path="/" component={Index} />
       <Route exact path="/list" component={List} />

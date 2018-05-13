@@ -110,7 +110,7 @@ export default class App extends Component {
         {this.renderHeros('dire')}
         {this.renderResult()}
         <div className="btn-contianer">
-          <Button  variant="raised" color="primary" onClick={this.handlePredict}>
+          <Button disabled={!this.validate()} variant="raised" color="primary" onClick={this.handlePredict}>
             {loading ? '加载中...' : '预测'}
           </Button>
         </div>
