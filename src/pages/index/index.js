@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import AutoComplet from '../../components/AutoComplet';
-import { queryWinner } from '../../service';
-import { queryHeros, queryTeams } from './service'
 import { FormControl } from 'material-ui/Form';
 import Snackbar from 'material-ui/Snackbar';
 import Button from 'material-ui/Button';
+import AutoComplet from '../../components/AutoComplet';
+import { queryWinner } from '../../service';
+import { queryHeros, queryTeams } from './service';
 import { TEXT } from '../../constants';
 
 import './index.css';
@@ -30,9 +30,9 @@ export default class App extends Component {
   }
 
   validate() {
-    const form = this.state.form;
+    const { form } = this.state;
     let valid = true;
-    Object.keys(form).forEach(key => {
+    Object.keys(form).forEach((key) => {
       if (!form[key]) valid = false;
     });
     return valid;
@@ -83,7 +83,7 @@ export default class App extends Component {
           <AutoComplet onChange={this.handleChange(`${type}_hero_5`)} getSuggestions={queryHeros} placeholder="请输入英雄名称" label="英雄" />
         </FormControl>
       </div>
-    )
+    );
   }
 
   renderResult() {
@@ -91,7 +91,7 @@ export default class App extends Component {
     if (!result) return null;
     return (
       <div className="result">
-          {`${TEXT[result.winner.toLowerCase()]}方有${result.win_probability}的概率获得胜利`}
+        {`${TEXT[result.winner.toLowerCase()]}方有${result.win_probability}的概率获得胜利`}
       </div>
     );
   }
@@ -114,8 +114,10 @@ export default class App extends Component {
             {loading ? '加载中...' : '预测'}
           </Button>
         </div>
-        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-          open={!!message} message={message}
+        <Snackbar
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+          open={!!message}
+          message={message}
           onClose={this.handleClearMessage}
         />
       </div>
