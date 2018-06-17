@@ -1,20 +1,29 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './index.less';
 
+import Header from './common/components/header';
+import NoMatch from './common/components/no-match';
 import Index from './pages/index';
-import List from './pages/list';
+import About from './pages/about';
+import Product from './pages/product';
+import Team from './pages/team';
+import Join from './pages/join';
 
 const App = () => (
   <Router>
-    <div className="App">
-      <header className="App-header">
-        <div className="App-logo"><div className="App-logo-icon">AT</div></div>
-        <h1 className="App-title">Welcome to Alpha Tac</h1>
-        Dota2 Win Prediction AI
-      </header>
-      <Route exact path="/" component={Index} />
-      <Route exact path="/list" component={List} />
+    <div className="app">
+      <Header />
+      <div className="app-page">
+        <Switch>
+          <Route exact path="/" component={Index} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/product" component={Product} />
+          <Route exact path="/team" component={Team} />
+          <Route exact path="/join" component={Join} />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
     </div>
   </Router>
 );

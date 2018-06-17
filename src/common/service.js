@@ -14,7 +14,7 @@ export function getQueryString(data) {
 }
 
 export function getJson(url, options = {}) {
-  const { method = 'GET', data, ...others } = options;
+  const { method = 'GET', data = {}, ...others } = options;
   if (!others.headers) {
     others.headers = new window.Headers({
       'Content-Type': 'application/json',
