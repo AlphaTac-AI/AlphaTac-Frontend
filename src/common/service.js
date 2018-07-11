@@ -1,5 +1,6 @@
 import moment from 'moment';
 import heros from './heros';
+import fetch from './fetch';
 
 export function getQueryString(data) {
   let str = '?';
@@ -13,15 +14,15 @@ export function getQueryString(data) {
 }
 
 export function getJson(url, options = {}) {
-  const { method = 'GET', data, ...others } = options;
+  const { method = 'GET', data = {}, ...others } = options;
   if (!others.headers) {
-    others.headers = new Headers({
+    others.headers = new window.Headers({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
     });
   }
   if (method === 'GET') {
-    url = `${url}${getQueryString(data)}`
+    url = `${url}${getQueryString(data)}`;
   } else if (method === 'POST') {
     others.body = JSON.stringify(data);
   }
@@ -38,7 +39,9 @@ export function getJson(url, options = {}) {
 
 export function getLives() {
   return getJson('https://api.opendota.com/api/live').then(data => {
-    data.forEach(item => item.activate_time_str = moment(item.activate_time).format('yyyy-MM-DD hh:mm:ss'));
+    data.forEach(item => {
+      item.activate_time_str = moment(item.activate_time).format('yyyy-MM-DD hh:mm:ss');
+    });
     return data;
   });
 }
@@ -48,8 +51,6 @@ export function getMatches() {
   return getJson('https://api.opendota.com/api/proMatches').then(data => {
     data.forEach(item => {
       item.start_time_str = moment(item.start_time * 1000).format('YYYY-MM-DD hh:mm:ss');
-      // item.dire_team_heros = item.dire_team.split(',').map(heroId => getHeroAvatar(heroId));
-      // item.radiant_team_heros = item.radiant_team.split(',').map(heroId => getHeroAvatar(heroId));
     });
     return data;
   });

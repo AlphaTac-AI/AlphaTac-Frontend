@@ -1,0 +1,41 @@
+.header {
+  background: #000;
+  color: #fff;
+  height: 64px;
+  position: relative;
+
+  a {
+    padding: 0 20px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .header-content {
+    margin: 0 40px;
+
+    .logo-container {
+      position: absolute;
+      left: 40px;
+      margin-left: 64px;
+      height: 64px;
+      line-height: 64px;
+      
+      .logo {
+        position: absolute;
+        left: -64px;
+        height: 64px;
+        width: 64px;
+        background-image: url(../../media/logo.png);
+        background-size: cover;
+      }
+    }
+
+    .link {
+      position: absolute;
+      right: 40px;
+      height: 64px;
+      line-height: 64px;
+    }
+  }
+}
