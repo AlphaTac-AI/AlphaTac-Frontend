@@ -4,12 +4,6 @@ import Loadable from 'react-loadable';
 import './index.less';
 
 import Header from './common/components/header';
-/*import NoMatch from './common/components/no-match';
-import Index from './pages/index';
-import About from './pages/about';
-import Product from './pages/product';
-import Team from './pages/team';
-import Join from './pages/join';*/
 
 const Loading = () => {
   return <div />;
