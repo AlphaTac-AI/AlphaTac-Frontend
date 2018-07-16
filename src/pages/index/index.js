@@ -8,8 +8,8 @@ export default class Home extends PureComponent {
       <div className="index-page">
         <div className="logo" />
         <div className="desc">
-          <h3>We Are AlphaTac AI</h3>
-          <h3>Use Data To Discover A New World</h3>
+          <h3>We are AlphaTac AI</h3>
+          <h3>use data to discover a new world</h3>
         </div>
       </div>
     );
