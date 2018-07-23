@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 
 import './index.less';
-
 export default class Home extends PureComponent {
   render() {
     return (

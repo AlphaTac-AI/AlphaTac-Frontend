@@ -89,7 +89,7 @@ function getStyleLoader(less) {
     },
   ];
   return {
-    test: /\.css$/,
+    test: less ? /\.less/ : /\.css$/,
     loader: ExtractTextPlugin.extract(
       Object.assign(
         {
