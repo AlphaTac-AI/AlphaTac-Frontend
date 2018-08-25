@@ -1,43 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
 import './index.less';
 
 import Header from './common/components/header';
-
-const Loading = () => {
-  return <div />;
-}
-
-const Index = Loadable({
-    loader: () => import('./pages/index'),
-    loading: Loading
-});
-
-const About = Loadable({
-    loader: () => import('./pages/about'),
-    loading: Loading
-});
-
-const Product = Loadable({
-    loader: () => import('./pages/product'),
-    loading: Loading
-});
-
-const Team = Loadable({
-    loader: () => import('./pages/team'),
-    loading: Loading
-});
-
-const Join = Loadable({
-    loader: () => import('./pages/join'),
-    loading: Loading
-});
-
-const NoMatch = Loadable({
-    loader: () => import('./common/components/no-match'),
-    loading: Loading
-});
+import NoMatch from './common/components/no-match';
+import Index from './pages/index';
+import About from './pages/about';
+import Product from './pages/product';
+import Team from './pages/team';
+import Join from './pages/join';
 
 const App = () => (
   <Router>
