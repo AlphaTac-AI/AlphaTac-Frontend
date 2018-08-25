@@ -49,17 +49,13 @@ export default class Home extends Component {
 
   componentDidMount(){
     let data = FetchMemberData();
-    console.log(data)
     this.setState({
       memberData: data,
     });
-    console.log('componentDidMount')
     
   }
 
   render() {
-    console.log("render")
-    console.log(this.state.memberData)
     return (
       <div className="team-page">
         <h3>Our Team</h3>
