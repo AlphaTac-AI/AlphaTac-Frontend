@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router'
 import { Layout, Icon, Drawer, Menu } from 'antd';
+import { FormattedMessage } from 'react-intl';
 import { bound } from "class-bind";
 import debounce from "lodash.debounce";
 import { mobileScreen } from "../../../utilities/size";
 
 import './index.less';
-
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class Header extends Component {
 
@@ -53,10 +51,10 @@ class Header extends Component {
                 <div className="logo" />
                 <Link to="/">AlphaTac AI</Link>
                 { !isMobile ? <div className="header-list">
-                  <Link to="/about">About</Link>
-                  <Link to="/product">Product</Link>
-                  <Link to="/team">Team</Link>
-                  <Link to="/join">Join</Link>
+                  <Link to="/about">{<FormattedMessage id="header.about"/>}</Link>
+                  <Link to="/product">{<FormattedMessage id="header.product"/>}</Link>
+                  <Link to="/team">{<FormattedMessage id="header.team"/>}</Link>
+                  <Link to="/join">{<FormattedMessage id="header.join"/>}</Link>
                 </div> : <Icon className="header-bar-icon" type="bars" 
                             onClick={this.openDrawer} style={{ fontSize: 40 }} /> }
               </div>
@@ -70,10 +68,10 @@ class Header extends Component {
             visible={this.state.isDrawerVisible}
           >
             <Menu style={{ width: 200, marginTop: "45px" }}>
-              <Menu.Item key="about"><Link to="/about">About</Link></Menu.Item>
-              <Menu.Item key="product"><Link to="/product">Product</Link></Menu.Item>
-              <Menu.Item key="team"><Link to="/team">Team</Link></Menu.Item>
-              <Menu.Item key="join"><Link to="/join">Join</Link></Menu.Item>
+              <Menu.Item key="about"><Link to="/about">{<FormattedMessage id="header.about"/>}</Link></Menu.Item>
+              <Menu.Item key="product"><Link to="/product">{<FormattedMessage id="header.product"/>}</Link></Menu.Item>
+              <Menu.Item key="team"><Link to="/team">{<FormattedMessage id="header.team"/>}</Link></Menu.Item>
+              <Menu.Item key="join"><Link to="/join">{<FormattedMessage id="header.join"/>}</Link></Menu.Item>
             </Menu>
           </Drawer>
         </div>
