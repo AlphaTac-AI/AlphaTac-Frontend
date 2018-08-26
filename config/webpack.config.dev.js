@@ -185,6 +185,7 @@ module.exports = {
               // directory for faster rebuilds.
               cacheDirectory: true,
               plugins: [
+                ["transform-decorators-legacy"],
                 [
                   "import",
                   {
