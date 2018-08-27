@@ -26,7 +26,7 @@ class Member extends Component {
 
         return (
             <div>
-                <div className="photo"><img src = {require("./default.jpg")} /></div>
+                <div className="photo"><img className="round-photo" src={require("./default.jpg")} /></div>
                 <div className="info">
                     <h3> {memberData.firstName}   {memberData.lastName} </h3>
                     <p> {memberData.title}</p>

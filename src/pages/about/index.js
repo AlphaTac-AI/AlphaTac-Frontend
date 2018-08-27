@@ -12,6 +12,32 @@ export default class Home extends Component {
           <p>{<FormattedMessage id="about.paragraph1"/>}</p>
           <p>{<FormattedMessage id="about.paragraph2"/>}</p>
         </div>
+
+        <h3>{<FormattedMessage id="about.whatWeAreDoing"/>}</h3>
+        <div>
+          <h3>{<FormattedMessage id="about.attractingAI"/>}</h3>
+          <p>{<FormattedMessage id="about.contentOfAttractingAI"/>}</p>
+        </div>
+
+        <div>
+          <h3>{<FormattedMessage id="about.dataContest"/>}</h3>
+          <p>{<FormattedMessage id="about.contentOfDataContest"/>}</p>
+        </div>
+
+        <div>
+          <h3>{<FormattedMessage id="about.resourceSharing"/>}</h3>
+          <p>{<FormattedMessage id="about.contentOfResourceSharing"/>}</p>
+        </div>
+
+        <div>
+          <h3>{<FormattedMessage id="about.technology"/>}</h3>
+          <p>{<FormattedMessage id="about.contentOfTechnology"/>}</p>
+        </div>
+
+        <div>
+          <h3>{<FormattedMessage id="about.researchOfAI"/>}</h3>
+          <p>{<FormattedMessage id="about.contentOfResearchOfAI"/>}</p>
+        </div>
       </div>
     );
   }

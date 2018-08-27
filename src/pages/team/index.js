@@ -59,7 +59,7 @@ export default class Home extends Component {
     return (
       <div className="team-page">
         <h3>Our Team</h3>
-        <div>
+        <div className="team-members">
           {this.state.memberData.map((data,index) => <Member key={index} memberData = {data} />)}
         </div>
       </div>
