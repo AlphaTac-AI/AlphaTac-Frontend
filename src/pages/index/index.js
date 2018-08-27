@@ -12,8 +12,8 @@ export default class Home extends PureComponent {
           <Layout>
             <Content>
               <div className="logo" />
-              <h3>We are AlphaTac AI</h3>
-              <h3>use data to discover a new world</h3>
+              <h3>We are AlphaTac</h3>
+              <h3>AI for Productivity Freedom</h3>
             </Content>
           </Layout>
           
