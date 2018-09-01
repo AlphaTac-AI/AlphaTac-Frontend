@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { bound } from "class-bind";
 
 import './index.less';
 import Member from '../../common/components/member';
-
 
 
 function FetchMemberData(){
@@ -38,13 +38,10 @@ function FetchMemberData(){
   return memberData;
 }
 
-export default class Home extends Component {
+class Team extends Component {
 
-  constructor(){
-    super()
-    this.state = {
-      memberData:[]
-    }
+  state = {
+    memberData:[]
   }
 
   componentDidMount(){
@@ -52,18 +49,20 @@ export default class Home extends Component {
     this.setState({
       memberData: data,
     });
-    
   }
 
   render() {
     return (
       <div className="team-page">
         <h3>Our Team</h3>
-        <div className="team-members">
-          {this.state.memberData.map((data,index) => <Member key={index} memberData = {data} />)}
+        <div className="team-container">
+          {this.state.memberData.map((data,index) => <div className="team-member"><Member key={index} memberData = {data} /></div>)}
         </div>
       </div>
     );
   }
 
 }
+
+
+export default Team;
