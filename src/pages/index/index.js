@@ -10,7 +10,7 @@ export default class Home extends PureComponent {
       <div className="index-page">
         <div className="desc">
           <Layout>
-            <Content>
+            <Content background-color='white'>
               <div className="logo" />
               <h3>We are AlphaTac</h3>
               <h3>AI for Productivity Freedom</h3>
