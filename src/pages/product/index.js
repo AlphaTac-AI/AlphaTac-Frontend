@@ -5,7 +5,7 @@ import './index.less';
 export default class Home extends Component {
   render() {
     return (
-      <div className="product-page">
+      <div className="project-page">
       </div>
     );
   }

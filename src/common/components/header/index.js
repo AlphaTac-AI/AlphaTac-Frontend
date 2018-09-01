@@ -53,7 +53,7 @@ class Header extends Component {
                 { !isMobile ? <div className="header-list">
                   <Link to="/">{<FormattedMessage id="header.home"/>}</Link>
                   <Link to="/about">{<FormattedMessage id="header.about"/>}</Link>
-                  <Link to="/product">{<FormattedMessage id="header.product"/>}</Link>
+                  <Link to="/product">{<FormattedMessage id="header.project"/>}</Link>
                   <Link to="/team">{<FormattedMessage id="header.team"/>}</Link>
                   <Link to="/join">{<FormattedMessage id="header.join"/>}</Link>
                 </div> : <Icon className="header-bar-icon" type="bars" 

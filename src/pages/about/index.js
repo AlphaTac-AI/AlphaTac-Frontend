@@ -8,7 +8,7 @@ class About extends Component {
     return (
       <div className="about-page">
 
-        <Paragraph title={"about.title"} contents={["about.paragraph1", "about.paragraph2"]}/>   
+        <Paragraph title={"about.title"} contents={["about.paragraph1", "about.paragraph2","about.paragraph3"]}/>   
 
         <Paragraph title={"about.whatWeAreDoing"} />    
         
