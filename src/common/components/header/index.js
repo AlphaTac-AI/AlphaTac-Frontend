@@ -51,6 +51,7 @@ class Header extends Component {
                 <div className="logo" />
                 <Link to="/">AlphaTac AI</Link>
                 { !isMobile ? <div className="header-list">
+                  <Link to="/">{<FormattedMessage id="header.home"/>}</Link>
                   <Link to="/about">{<FormattedMessage id="header.about"/>}</Link>
                   <Link to="/product">{<FormattedMessage id="header.product"/>}</Link>
                   <Link to="/team">{<FormattedMessage id="header.team"/>}</Link>
@@ -68,6 +69,7 @@ class Header extends Component {
             visible={this.state.isDrawerVisible}
           >
             <Menu style={{ width: 200, marginTop: "45px" }}>
+              <Menu.Item key="home"><Link to="/">{<FormattedMessage id="header.home"/>}</Link></Menu.Item>
               <Menu.Item key="about"><Link to="/about">{<FormattedMessage id="header.about"/>}</Link></Menu.Item>
               <Menu.Item key="product"><Link to="/product">{<FormattedMessage id="header.product"/>}</Link></Menu.Item>
               <Menu.Item key="team"><Link to="/team">{<FormattedMessage id="header.team"/>}</Link></Menu.Item>
