@@ -1,6 +1,6 @@
 export const chinese = {
     "header.about": "关于我们",
-    "header.project": "我们的项目",
+    "header.product": "我们的项目",
     "header.team": "我们的团队",
     "header.join": "加入我们",
     "header.home": "首页",
