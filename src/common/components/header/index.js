@@ -9,6 +9,8 @@ import { mobileScreen } from "../../../utilities/size";
 
 import './index.less';
 
+const { SubMenu, ItemGroup, Item } = Menu;
+
 class Header extends Component {
 
     state = {
@@ -39,6 +41,24 @@ class Header extends Component {
       this.setState({ isDrawerVisible: false });
     }
 
+    renderMenu(isMobile) {
+      return (
+        <Menu theme={isMobile ? 'light' : 'dark'} mode={isMobile ? 'vertical' : 'horizontal'}
+          style={isMobile ? { width: 200, marginTop: "45px" } : null}>
+          <Item key="home"><Link to="/">{<FormattedMessage id="header.home"/>}</Link></Item>
+          <Item key="about"><Link to="/about">{<FormattedMessage id="header.about"/>}</Link></Item>
+          <SubMenu key="product" title={
+              <Link to="/product">{<FormattedMessage id="header.product"/>}</Link>
+            }>
+            <Item key="setting:1">Dota Predicate</Item>
+            <Item key="setting:2">Other</Item>
+          </SubMenu>
+          <Item key="team"><Link to="/team">{<FormattedMessage id="header.team"/>}</Link></Item>
+          <Item key="join"><Link to="/join">{<FormattedMessage id="header.join"/>}</Link></Item>
+        </Menu>
+      );
+    }
+
     render() {
 
       const isMobile = this.state.screenSize < mobileScreen;
@@ -50,14 +70,10 @@ class Header extends Component {
              <div className="header-container">
                 <div className="logo" />
                 <Link to="/">AlphaTac AI</Link>
-                { !isMobile ? <div className="header-list">
-                  <Link to="/">{<FormattedMessage id="header.home"/>}</Link>
-                  <Link to="/about">{<FormattedMessage id="header.about"/>}</Link>
-                  <Link to="/product">{<FormattedMessage id="header.project"/>}</Link>
-                  <Link to="/team">{<FormattedMessage id="header.team"/>}</Link>
-                  <Link to="/join">{<FormattedMessage id="header.join"/>}</Link>
-                </div> : <Icon className="header-bar-icon" type="bars" 
-                            onClick={this.openDrawer} style={{ fontSize: 40 }} /> }
+                { !isMobile ? this.renderMenu(isMobile) : (
+                  <Icon className="header-bar-icon" type="bars" 
+                    onClick={this.openDrawer} style={{ fontSize: 40 }} />
+                )}
               </div>
             </Layout.Header>
           </Layout>
@@ -68,13 +84,7 @@ class Header extends Component {
             onClose={this.closeDrawer}
             visible={this.state.isDrawerVisible}
           >
-            <Menu style={{ width: 200, marginTop: "45px" }}>
-              <Menu.Item key="home"><Link to="/">{<FormattedMessage id="header.home"/>}</Link></Menu.Item>
-              <Menu.Item key="about"><Link to="/about">{<FormattedMessage id="header.about"/>}</Link></Menu.Item>
-              <Menu.Item key="product"><Link to="/product">{<FormattedMessage id="header.product"/>}</Link></Menu.Item>
-              <Menu.Item key="team"><Link to="/team">{<FormattedMessage id="header.team"/>}</Link></Menu.Item>
-              <Menu.Item key="join"><Link to="/join">{<FormattedMessage id="header.join"/>}</Link></Menu.Item>
-            </Menu>
+            {this.renderMenu(isMobile)}
           </Drawer>
         </div>
       )

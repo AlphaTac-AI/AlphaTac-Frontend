@@ -1,6 +1,6 @@
 export const english = {
     "header.about": "About",
-    "header.project": "Projects",
+    "header.product": "Projects",
     "header.team": "Team",
     "header.join": "Join Us",
     "header.home": "Home",
