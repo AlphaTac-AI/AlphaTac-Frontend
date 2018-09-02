@@ -16,16 +16,19 @@ function FetchMemberData(){
     {
       firstName: 'Pei',
       lastName: 'Shang',
+      photo: 'pei_shange.jpg',
       title:'Co-Founder/Poject Manager',
     },
     {
       firstName: 'Jackie',
       lastName: 'Wu',
+      photo: 'jackie_wu',
       title: 'Software Engineer',
     },
     {
       firstName: 'Jiaming',
       lastName: 'Ning',
+      photo: 'jiamin_ning',
       title: 'Software Engineer',
     },
     {
