@@ -22,6 +22,7 @@ class Member extends Component {
         }
         
         const photoSrc = photoRoot + photo;
+        console.log("photoSrc: ", photoSrc);
 
         return (
             <div>
@@ -30,7 +31,6 @@ class Member extends Component {
                     <h3> {memberData.firstName}   {memberData.lastName} </h3>
                     <p> {memberData.title}</p>
                 </div>
-
             </div>
             
         );
