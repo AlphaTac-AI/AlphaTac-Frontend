@@ -5,7 +5,6 @@ const defaultPhoto = 'default.jpg';
 
 class Member extends Component {
 
-
     constructor(props){
         super(props);
         this.state = {
@@ -22,10 +21,11 @@ class Member extends Component {
         }
         
         const photoSrc = photoRoot + photo;
+        
 
         return (
             <div>
-                <img className="round-photo" src={require("./default.jpg")} />
+                <img className="round-photo" src={this.state.memberData.photo} />
                 <div className="member-info">
                     <h3> {memberData.firstName}   {memberData.lastName} </h3>
                     <p> {memberData.title}</p>

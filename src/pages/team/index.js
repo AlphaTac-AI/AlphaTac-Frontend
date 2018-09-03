@@ -10,30 +10,37 @@ function FetchMemberData(){
     {
       firstName: 'Vector',
       lastName: 'Shan',
-      photo: 'vector_shan.jpg',
+      photo: require("../../common/media/member_photos/vector_shan.jpg"),
       title: 'Co-Founder/Algorithm Engineer',
     },
     {
       firstName: 'Pei',
       lastName: 'Shang',
-      photo: 'pei_shange.jpg',
+      photo: require("../../common/media/member_photos/pei_shang.jpg"),
       title:'Co-Founder/Poject Manager',
     },
     {
       firstName: 'Jackie',
       lastName: 'Wu',
-      photo: 'jackie_wu',
+      photo: require("../../common/media/member_photos/jackie_wu.jpg"),
       title: 'Software Engineer',
     },
     {
       firstName: 'Jiaming',
       lastName: 'Ning',
-      photo: 'jiamin_ning',
+      photo: require("../../common/media/member_photos/jiamin_ning.jpg"),
       title: 'Software Engineer',
     },
     {
       firstName: 'Bryce',
       lastName: 'Hu',
+      photo: require("../../common/media/member_photos/default.jpg"),
+      title: 'Software Engineer',
+    },
+    {
+      firstName: 'Jason',
+      lastName: 'Xu',
+      photo: require("../../common/media/member_photos/jason_xu.jpeg"),
       title: 'Software Engineer',
     }
   ]
@@ -59,7 +66,7 @@ class Team extends Component {
       <div className="team-page">
         <h3>Our Team</h3>
         <div className="team-container">
-          {this.state.memberData.map((data,index) => <div className="team-member"><Member key={index} memberData = {data} /></div>)}
+          {this.state.memberData.map((data,index) => <div className="team-member" key={index}><Member memberData = {data} /></div>)}
         </div>
       </div>
     );
