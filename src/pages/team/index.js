@@ -16,7 +16,7 @@ function FetchMemberData(){
       firstName: 'Pei',
       lastName: 'Shang',
       photo: require("../../common/media/member_photos/pei_shang.jpg"),
-      title:'Co-Founder/Poject Manager',
+      title:'Co-Founder/Project Manager',
     },
     {
       firstName: 'Jackie',
