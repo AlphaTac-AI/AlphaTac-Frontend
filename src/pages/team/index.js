@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { bound } from "class-bind";
 
 import './index.less';
 import Member from '../../common/components/member';
@@ -64,7 +63,7 @@ class Team extends Component {
   render() {
     return (
       <div className="team-page">
-        <h3>Our Team</h3>
+        <h2>Our Team</h2>
         <div className="team-container">
           {this.state.memberData.map((data,index) => <div className="team-member" key={index}><Member memberData = {data} /></div>)}
         </div>
