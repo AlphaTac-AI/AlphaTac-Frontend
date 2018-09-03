@@ -63,11 +63,7 @@ class Team extends Component {
   render() {
     return (
       <div className="team-page">
-<<<<<<< HEAD
         <h2>Our Team</h2>
-=======
-        <h3>我们的团队</h3>
->>>>>>> dev
         <div className="team-container">
           {this.state.memberData.map((data,index) => <div className="team-member" key={index}><Member memberData = {data} /></div>)}
         </div>
