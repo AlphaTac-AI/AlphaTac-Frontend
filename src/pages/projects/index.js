@@ -86,9 +86,12 @@ class ProjectsPage extends Component {
   
   render() {
     const { data, history } = this.props;
+
+    if this.state
     return (
       <div className="project-page">
         <div className="card-container">
+
           {data.map((item, i) => <Card key={i} {...item} history={history} />)}
         </div>
       </div>

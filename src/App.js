@@ -42,7 +42,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Index} />
                 <Route exact path="/about" component={About} />
-                <Route exact path="/projects" component={ProjectsPage} />
+                <Route exact path="/projects/" component={ProjectsPage} />
                 <Route exact path="/team" component={Team} />
                 <Route exact path="/join" component={Join} />
                 <Route component={NoMatch} />
@@ -56,3 +56,6 @@ class App extends Component {
 }
 
 export default App;
+
+//this.props.history.push({ path: "/projects", state: { params: {...} } })
+
