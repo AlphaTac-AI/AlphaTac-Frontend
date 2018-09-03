@@ -16,7 +16,19 @@ function FetchMemberData(){
       firstName: 'Pei',
       lastName: 'Shang',
       photo: require("../../common/media/member_photos/pei_shang.jpg"),
-      title:'Co-Founder/Poject Manager',
+      title:'Co-Founder/Project Manager',
+    },
+    {
+      firstName: 'X-Man',
+      lastName: 'Hu',
+      photo: require("../../common/media/member_photos/bryce_hu.jpg"),
+      title: 'Software Engineer',
+    },
+    {
+      firstName: 'Jiamin',
+      lastName: 'Ning',
+      photo: require("../../common/media/member_photos/jiamin_ning.jpg"),
+      title: 'Software Engineer',
     },
     {
       firstName: 'Jackie',
@@ -25,23 +37,30 @@ function FetchMemberData(){
       title: 'Software Engineer',
     },
     {
-      firstName: 'Jiaming',
-      lastName: 'Ning',
-      photo: require("../../common/media/member_photos/jiamin_ning.jpg"),
+      firstName: 'Minhua',
+      lastName: 'Chen',
+      photo: require("../../common/media/member_photos/minhua_chen.jpg"),
       title: 'Software Engineer',
     },
     {
-      firstName: 'Bryce',
-      lastName: 'Hu',
+      firstName: 'Jing',
+      lastName: 'Xu',
+      photo: require("../../common/media/member_photos/jing_xu.jpg"),
+      title: 'Software Engineer',
+    },
+    {
+      firstName: 'Changlong',
+      lastName: 'Ye',
       photo: require("../../common/media/member_photos/default.jpg"),
       title: 'Software Engineer',
     },
     {
       firstName: 'Jason',
       lastName: 'Xu',
-      photo: require("../../common/media/member_photos/jason_xu.jpeg"),
-      title: 'Software Engineer',
+      photo: require("../../common/media/member_photos/jason_xu.jpg"),
+      title: 'Contributor',
     }
+
   ]
 
   return memberData;
@@ -63,7 +82,7 @@ class Team extends Component {
   render() {
     return (
       <div className="team-page">
-        <h2>Our Team</h2>
+        <h1>Our Team</h1>
         <div className="team-container">
           {this.state.memberData.map((data,index) => <div className="team-member" key={index}><Member memberData = {data} /></div>)}
         </div>
