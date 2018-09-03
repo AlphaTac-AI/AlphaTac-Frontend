@@ -168,11 +168,12 @@ module.exports = {
           // A missing `test` is equivalent to a match.
           {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-            loader: require.resolve('url-loader'),
-            options: {
-              limit: 10000,
-              name: 'static/media/[name].[hash:8].[ext]',
-            },
+            use: [
+              {
+                loader: 'url-loader',
+                options: { limit: 40000 }
+              }
+            ]
           },
           // Process JS with Babel.
           {
