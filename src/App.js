@@ -7,7 +7,7 @@ import Header from './common/components/header';
 import NoMatch from './common/components/no-match';
 import Index from './pages/index';
 import About from './pages/about';
-import Product from './pages/product';
+import ProjectsPage from './pages/projects';
 import Team from './pages/team';
 import Join from './pages/join';
 
@@ -42,7 +42,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Index} />
                 <Route exact path="/about" component={About} />
-                <Route exact path="/product" component={Product} />
+                <Route exact path="/projects" component={ProjectsPage} />
                 <Route exact path="/team" component={Team} />
                 <Route exact path="/join" component={Join} />
                 <Route component={NoMatch} />
