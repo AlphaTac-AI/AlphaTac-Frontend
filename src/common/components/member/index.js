@@ -14,17 +14,6 @@ class Member extends Component {
 
     render(){
         const memberData = this.state.memberData
-<<<<<<< HEAD
-=======
-        let photo = defaultPhoto;
-        const photoRoot = '../../media/member_photos/'
-        if(this.state.memberData.photo){
-            photo = this.state.memberData.photo;
-        }
-        
-        const photoSrc = photoRoot + photo;
-        console.log("photoSrc: ", photoSrc);
->>>>>>> dev
 
         return (
             <div>
