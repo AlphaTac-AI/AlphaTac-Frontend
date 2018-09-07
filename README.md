@@ -1,1 +1,1 @@
-frontend for alpha tac
+web frontend of AlphaTac AI
