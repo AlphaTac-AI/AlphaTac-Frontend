@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './index.less';
-import {Avatar, Badge} from 'antd';
+import {Avatar, Badge, Popover} from 'antd';
 import API from '../../../apis/apis';
 import axios from 'axios';
 
@@ -36,9 +36,11 @@ class Contributors extends Component {
       const listItems = contributor.map((contributor, index) =>
         <li key={index} className="team-contributor-li">
           <span style={{marginRight: 24}}>
-            <Badge count={contributor.contributions}><Avatar shape="square" size="large" src={contributor.avatar_url}/></Badge>
+            <Popover content={contributor.login}>
+              <Badge count={contributor.contributions}><Avatar shape="square" size="large" src={contributor.avatar_url}/></Badge>
+            </Popover>
           </span>
-          {contributor.login}
+          {/*{contributor.login}*/}
         </li>
       );
       return (
@@ -47,12 +49,12 @@ class Contributors extends Component {
     }
 
     return (
-      <div>
+      <div className="contributor">
         <h1>Contributors</h1>
         {
           this.state.repos.map((repo, index) =>
-            <div key={index}>
-              <h3>{repo.name}</h3>
+            <div key={index} className="repo">
+              <div>{repo.name}</div>
               <ContributorList contributor={repo.contributors}/>
             </div>)
         }

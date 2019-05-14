@@ -19,8 +19,8 @@ class Member extends Component {
             <div>
                 <img className="round-photo" src={this.state.memberData.photo} />
                 <div className="member-info">
-                    <h2> {memberData.firstName}   {memberData.lastName} </h2>
-                    <h3> {memberData.title}</h3>
+                    <h3> {memberData.firstName}   {memberData.lastName} </h3>
+                    <p> {memberData.title}</p>
                 </div>
             </div>
             
