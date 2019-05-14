@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './index.less';
-import {Avatar, Badge, Popover} from 'antd';
+import {Avatar, Badge, Popover, Spin} from 'antd';
 import API from '../../../apis/apis';
 import axios from 'axios';
 
@@ -8,7 +8,8 @@ class Contributors extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      repos: []
+      repos: [],
+      loading: false
     };
   }
 
@@ -17,6 +18,7 @@ class Contributors extends Component {
   }
 
   getRepos = async () => {
+    this.setState({loading: true});
     let repos = await API.listRepos();
     let reqs = [];
     for (let repo of repos) {
@@ -31,7 +33,7 @@ class Contributors extends Component {
         contributors: res[i]
       });
     }
-    this.setState({repos: reposData})
+    this.setState({repos: reposData, loading: false});
   };
 
   render() {
@@ -59,6 +61,7 @@ class Contributors extends Component {
       <div className="contributor">
         <h1>Contributors</h1>
         {
+          this.state.loading ? <Spin /> :
           this.state.repos.map((repo, index) =>
             <div key={index} className="repo">
               <a href={repo.url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
