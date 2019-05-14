@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './index.less';
 import Member from '../../common/components/member';
 
+import Contributors from '../../common/components/contributors';
 
 function FetchMemberData(){
   let memberData = [
@@ -70,7 +71,7 @@ class Team extends Component {
 
   state = {
     memberData:[]
-  }
+  };
 
   componentDidMount(){
     let data = FetchMemberData();
@@ -86,6 +87,7 @@ class Team extends Component {
         <div className="team-container">
           {this.state.memberData.map((data,index) => <div className="team-member" key={index}><Member memberData = {data} /></div>)}
         </div>
+        <Contributors/>
       </div>
     );
   }
