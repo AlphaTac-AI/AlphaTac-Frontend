@@ -5,9 +5,12 @@ import API from '../../../apis/apis';
 import axios from 'axios';
 
 class Contributors extends Component {
-  state = {
-    repos: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      repos: []
+    };
+  }
 
   componentDidMount() {
     this.getRepos();
@@ -24,6 +27,7 @@ class Contributors extends Component {
     for (let i = 0; i < repos.length; i++) {
       reposData.push({
         name: repos[i].name,
+        url: repos[i].html_url,
         contributors: res[i]
       });
     }
@@ -37,10 +41,13 @@ class Contributors extends Component {
         <li key={index} className="team-contributor-li">
           <span style={{marginRight: 24}}>
             <Popover content={contributor.login}>
-              <Badge count={contributor.contributions}><Avatar shape="square" size="large" src={contributor.avatar_url}/></Badge>
+              <Badge count={contributor.contributions}>
+                <a href={contributor.html_url} target="_blank" rel="noopener noreferrer">
+                  <Avatar shape="square" size="large" src={contributor.avatar_url}/>
+                </a>
+              </Badge>
             </Popover>
           </span>
-          {/*{contributor.login}*/}
         </li>
       );
       return (
@@ -54,7 +61,7 @@ class Contributors extends Component {
         {
           this.state.repos.map((repo, index) =>
             <div key={index} className="repo">
-              <div>{repo.name}</div>
+              <a href={repo.url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
               <ContributorList contributor={repo.contributors}/>
             </div>)
         }
