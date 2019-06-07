@@ -87,7 +87,7 @@ class ProjectsPage extends Component {
   render() {
     const { data, history } = this.props;
 
-    if this.state
+    console.log(this.props);
     return (
       <div className="project-page">
         <div className="card-container">
