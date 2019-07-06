@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Carousel } from 'antd';
 import './index.less';
 import Card from './components/card';
 
@@ -41,46 +41,6 @@ class ProjectsPage extends Component {
       title: 'Europe Street beat',
       desc: 'www.instagram.com',
       cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535908367350&di=ded378f2ea2247c2416b280275bbc06e&imgtype=0&src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F171024%2F74-1G024093F9-50.jpg',
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535905239887&di=d3a2eab375a56874e6306238ff9f4e28&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fed88757c320d91865275015d1c47e94626d4a691.jpg'
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535908367350&di=ded378f2ea2247c2416b280275bbc06e&imgtype=0&src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F171024%2F74-1G024093F9-50.jpg',
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535905239887&di=d3a2eab375a56874e6306238ff9f4e28&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fed88757c320d91865275015d1c47e94626d4a691.jpg'
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535908367350&di=ded378f2ea2247c2416b280275bbc06e&imgtype=0&src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F171024%2F74-1G024093F9-50.jpg',
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535905239887&di=d3a2eab375a56874e6306238ff9f4e28&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fed88757c320d91865275015d1c47e94626d4a691.jpg'
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535908367350&di=ded378f2ea2247c2416b280275bbc06e&imgtype=0&src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F171024%2F74-1G024093F9-50.jpg',
-    }, {
-      title: 'Europe Street beat',
-      desc: 'www.instagram.com',
-      cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535908367350&di=ded378f2ea2247c2416b280275bbc06e&imgtype=0&src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F171024%2F74-1G024093F9-50.jpg',
     }]
   }
   
@@ -88,9 +48,23 @@ class ProjectsPage extends Component {
     const { data, history } = this.props;
     return (
       <div className="project-page">
-        <div className="card-container">
-          {data.map((item, i) => <Card key={i} {...item} history={history} />)}
-        </div>
+        <Carousel autoplay>
+          <div>
+            <h3>1</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+        </Carousel>
+        {/*<div className="card-container">*/}
+          {/*{data.map((item, i) => <Card key={i} {...item} history={history} />)}*/}
+        {/*</div>*/}
       </div>
     );
   }

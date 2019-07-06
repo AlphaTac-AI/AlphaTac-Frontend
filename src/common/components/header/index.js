@@ -14,6 +14,7 @@ const { SubMenu, ItemGroup, Item } = Menu;
 class Header extends Component {
 
     state = {
+      current: 'mail',
       screenSize: window.innerWidth,
       isDrawerVisible: false
     };
@@ -46,24 +47,17 @@ class Header extends Component {
         <Menu theme={isMobile ? 'light' : 'dark'} mode={isMobile ? 'vertical' : 'horizontal'}
           style={isMobile ? { width: 200, marginTop: "45px" } : null}>
           <Item key="home"><Link to="/">{<FormattedMessage id="header.home"/>}</Link></Item>
-
-          <SubMenu key="about" title={
-            <FormattedMessage id="header.about"/>
-          }>
-            <Item key="our-mission" ><Link to="/about">我们在做什么</Link></Item>
-            <Item key="our-mission" ><Link to="/about">我们的使命</Link></Item>
-
-          </SubMenu>
-
-          <SubMenu key="projects" title={
-              <FormattedMessage id="header.projects"/>
-            }>
-            <Item key="setting:1"><Link to="/projects/ai-application">人工智能应用</Link></Item>
-            <Item key="setting:2"><Link to="/projects/ai-contest">数据科学竞赛</Link></Item>
-            <Item key="setting:3"><Link to="/projects/tech-content" >技术内容生产</Link></Item>
-            <Item key="setting:4"><Link to="/projects/ai-research">人工智能研究</Link></Item>
-          </SubMenu>
+          <Item key="projects"><Link to="/projects">{<FormattedMessage id="header.projects"/>}</Link></Item>
+          {/*<SubMenu key="projects" title={*/}
+              {/*<FormattedMessage id="header.projects"/>*/}
+            {/*}>*/}
+            {/*<Item key="setting:1"><Link to="/projects/ai-application">人工智能应用</Link></Item>*/}
+            {/*<Item key="setting:2"><Link to="/projects/ai-contest">数据科学竞赛</Link></Item>*/}
+            {/*<Item key="setting:3"><Link to="/projects/tech-content" >技术内容生产</Link></Item>*/}
+            {/*<Item key="setting:4"><Link to="/projects/ai-research">人工智能研究</Link></Item>*/}
+          {/*</SubMenu>*/}
           <Item key="team"><Link to="/team">{<FormattedMessage id="header.team"/>}</Link></Item>
+          <Item key="about"><Link to="/about">{<FormattedMessage id="header.about"/>}</Link></Item>
           <Item key="join"><Link to="/join">{<FormattedMessage id="header.join"/>}</Link></Item>
         </Menu>
       );
